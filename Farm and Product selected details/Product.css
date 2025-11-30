@@ -1,0 +1,939 @@
+*{box-sizing: border-box;}
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.topHeader {
+    background-color: #aa79aa;
+    padding: 37px 0;
+
+    position: relative;
+}
+
+.logoLink {
+    position: absolute;
+    top: 7px;
+    left: 16px;
+    z-index: 100;
+    display: block;
+    text-decoration: none;
+}
+
+.headerImage {
+    display: block;
+    object-fit: contain;
+}
+
+.locationLink {
+    position: absolute;
+    top: 23px;
+    left: 100px;
+    width: 120px;
+    height: 40px;
+    z-index: 100;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.locationLink:hover .locationIcon {
+    transform: scale(1.1);
+}
+
+.locationLink:hover .locationText {
+    color: white;
+    transform: translateX(-50%) scale(1.05);
+}
+
+.locationIcon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.locationText {
+    position: absolute;
+    top: 5px;
+    left: 80px;
+    color: #1a1a1a;
+    white-space: nowrap;
+    transform: translateX(-50%);
+    font-size: 18px;
+    display: block;
+    transition: all 0.3s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+.searchContainer {
+    position: absolute;
+    top: 11px;
+    left: 270px;
+    display: inline-block;
+}
+
+.searchBar {
+    padding: 15px 12px;
+    border: 2px solid #8a5a8a;
+    border-radius: 20px;
+    font-size: 14px;
+    width: min(1170px, calc(100vw - 500px));
+    outline: none;
+    background-color: white;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.searchBar:focus {
+    border-color: #6a3a6a;
+    box-shadow: 0 0 5px rgba(170, 121, 170, 0.3);
+}
+
+.searchButton {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    bottom: 1px;
+    padding: 0px 14px;
+    background-color: #8a5a8a;
+    cursor: pointer;
+    border: none;
+    border-radius: 0 19px 19px 0;
+    transition: background-color 0.3s ease;
+}
+
+.searchButton img {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+.searchButton:hover {
+    background-color: #6a3a6a;
+    color: white;
+}
+
+.iconLinks {
+    position: absolute;
+    top: 20px;
+    right: 50px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #8a5a8a;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 20px;
+}
+
+.iconLink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+        gap: 8px;
+        justify-content: flex-start;
+    text-decoration: none;
+    color: #1a1a1a;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+.iconLink:hover {
+    background-color: #8a5a8a;
+}
+
+.linkIcon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.linkText {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+    transition: color 0.3s ease;
+    text-align: left;
+}
+
+.iconLink:hover .linkText {
+    color: white;
+}
+
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+    min-height: auto;
+    padding-bottom: 20px;
+    position: relative;
+    margin-top: 25px;
+}
+
+.containerImage {
+    width: 100%;
+    height: 120px;
+    display: block;
+    object-fit: cover;
+    object-position: top;
+    cursor: pointer;
+    transition: height 0.3s ease, object-fit 0.3s ease;
+}
+
+.containerImage.expanded {
+    height: auto;
+    object-fit: cover;
+}
+
+.mainContent {
+    max-width: 1500px;
+    margin: 5px auto;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    gap: 60px;
+}
+
+.productSection {
+    width: 850px;
+    min-height: 700px;
+    background: white;
+    
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 0;
+}
+
+.productInfo {
+    margin-bottom: 20px;
+}
+
+.mainContent .productSection .productInfo .productDetailImage {
+    width:700px;
+    height: 505px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    display: block;
+    margin-top: 24px;
+}
+
+.quantitySection {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: auto;
+}
+
+.quantitySection label {
+    font-weight: 500;
+    color: #2d2d2d;
+}
+
+.quantityControls {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.quantityBtn {
+    background: #8a5a8a;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.quantityBtn:hover {
+    background: #6a3a6a;
+}
+
+#quantity {
+    border: none;
+    padding: 8px 15px;
+    text-align: center;
+    width: 60px;
+    outline: none;
+}
+
+.addToCartBtn {
+    background: #8a5a8a;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.addToCartBtn:hover {
+    background: #6a3a6a;
+    
+}
+
+.sideProducts {
+   width: 600px;
+   height: 800px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    height: fit-content;
+   
+    
+    gap: 30px;
+}
+
+.sideProducts h3 {
+    margin: 0 0 0px 0;
+    color: #2d2d2d;
+    font-size: 1.3rem;
+    border-bottom: 2px solid #8a5a8a;
+    padding-bottom: 10px;
+}
+
+.productsList {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sideProductCard {
+    display: flex;
+    gap: 13px;
+    padding: 12px;
+    border: 1px solid #e9ecef;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    height: 90px;
+    overflow: hidden;
+    position: relative;
+}
+
+.sideProductCard:hover {
+    border-color: #8a5a8a;
+    box-shadow: 0 2px 8px rgba(138, 90, 138, 0.1);
+}
+
+.sideProductImage {
+    width: 75px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+.sideProductInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 8px;
+    height: 100%;
+}
+
+.sideProductInfo h4 {
+    margin: 0;
+    font-size: 1rem;
+    color: #2d2d2d;
+    font-weight: 500;
+    line-height: 1.2;
+}
+
+.sidePrice {
+    font-size: 1rem;
+    color: #8a5a8a;
+    font-weight: bold;
+    margin-top: auto;
+    margin-bottom: 0;
+    align-self: flex-start;
+    
+    
+}
+
+.sideControls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-end;
+    position: relative;
+    margin-top: -20px !important;
+}
+
+.sideControls button {
+    background: #8a5a8a;
+    color: white;
+    border: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.sideControls button:hover {
+    background: #6a3a6a;
+}
+
+.sideControls input {
+    width: 35px;
+    height: 25px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    outline: none;
+}
+
+.sideAddBtn {
+    background: #8a5a8a !important;
+    padding: 0 8px !important;
+    width: auto !important;
+    font-size: 0.75rem !important;
+    margin-left: 50px !important;
+}
+
+.sideAddBtn:hover {
+    background: #6a3a6a !important;
+}
+
+.cartNotification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #8a5a8a;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateX(400px);
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.cartNotification.show {
+    transform: translateX(0);
+}
+
+
+.sideProductCard.active {
+    border-color: #8a5a8a;
+    box-shadow: 0 2px 8px rgba(138, 90, 138, 0.1);
+}
+.productDescriptionDemo {
+  border-radius: 8px;
+    padding: 18px 22px;
+    margin-top: 18px;
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+    box-shadow: 0 2px 8px rgba(138, 90, 138, 0.07);
+}
+
+.sideProductDescriptionDemo {
+    display: none;
+}
+    
+
+.productPriceDemo, .sidePriceDemo {
+    font-size: 1.2rem;
+    color: #8a5a8a;
+    font-weight: bold;
+    margin-right: 40px;
+    min-width: 80px;
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+.footerSection {
+    background-color: #6a3a6a;
+    color: white;
+    padding: 40px 0 20px 0;
+    margin-top: 50px !important;
+}
+
+.footerContent {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footerLogo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footerLogoImage {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    margin-bottom: 15px;
+}
+
+.footerLogo h2 {
+    color: #d8bfd8;
+    font-size: 28px;
+    margin: 0 0 10px 0;
+    font-weight: 700;
+}
+
+.footerLogo p {
+    color: #e0d0e0;
+    font-size: 16px;
+    margin: 0;
+    font-style: italic;
+}
+
+.footerLinks {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.linkColumn h4 {
+    color: #d8bfd8;
+    font-size: 16px;
+    margin: 0 0 15px 0;
+    font-weight: 600;
+}
+
+.linkColumn a {
+    display: block;
+    color: #e0d0e0;
+    text-decoration: none;
+    font-size: 14px;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.linkColumn a:hover {
+    color: white;
+}
+
+.footerBottom {
+    border-top: 1px solid #8a5a8a;
+    margin-top: 30px;
+    padding-top: 20px;
+    text-align: center;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.footerBottom p {
+    color: #d0c0d0;
+    font-size: 14px;
+    margin: 0;
+}
+
+.price-separator {
+    display: inline-block;
+    width: 1px;
+    height: 18px;
+    background: #8a5a8a;
+    margin: 0 10px;
+    vertical-align: middle;
+}
+
+
+.addToCartButton {
+    position: absolute;
+   
+ 
+}
+
+.buyNowBtn {
+    background: #8a5a8a;
+    color: white;
+    border: none;
+    padding: 16px 40px; 
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    position: relative;
+    left: 0;
+   
+}
+.buyNowBtn:hover {
+    background: #6a3a6a;
+   
+}
+
+
+
+/*.subTotalAddCartRow {
+    position: absolute;
+ 
+    left: 1250px;
+    margin-top: -100px;
+
+}*/
+
+
+
+
+#mainProductPrice {
+    margin-right: 40px;
+}
+
+.downContent {
+    margin-top: 120px !important;
+    max-width: 1500px;
+    margin: 5px auto;
+    position: relative;
+}
+
+
+.buyNowBtn {
+    position: absolute;
+   
+    left: 1295px;
+    margin-top: -100px;
+ 
+}
+
+.addToCartBtn {
+  position: absolute;
+    left: 1425px;
+    margin-top: -100px;
+    padding: 16px 40px;
+    background: #815681 !important;
+}
+.addToCartBtn:hover {
+    background: #6a3a6a !important;
+}
+
+.goToCartBtn {
+    position: absolute;
+    left: 1565px;
+    margin-top: -100px;
+    padding: 16px 40px;
+    background: #6a3a6a;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.goToCartBtn:hover {
+    background: #5a2a5a;
+}
+    
+
+.subTotalBox {
+    font-weight: bold;
+    color: #3d3d3d;
+    font-size: 18px;
+ position: absolute;
+    padding: 10px 25px;
+    background: #fff;
+    left: 1160px;
+    margin-top: -96px;
+   
+    
+}
+
+.aboutCompany {
+    width: 850px;
+    height: auto;
+    position: relative;
+}
+
+
+
+
+
+.ratingsReviews {
+ 
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 28px 24px;
+    width: 350px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-family: inherit;
+}
+.ratingsReviews h4 {
+    margin-top: 0;
+ 
+    font-size: 1.3em;
+    font-weight: 700;
+}
+.ratingsReviews .ratings {
+    font-size: 1.2em;
+    margin-bottom: 12px;
+}
+.ratingsReviews .reviews p {
+    margin: 10px 0;
+    font-size: 1em;
+    color: #444;
+    background: #fff;
+    border-radius: 6px;
+    padding: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+
+/*.downFlexRow {
+    display: flex;
+    gap: 64px;
+    justify-content: center;
+    align-items: flex-start;
+    margin: 32px auto;
+    max-width: 1200px;
+}*/
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modalContent {
+    background-color: white;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.modalHeader h2 {
+    margin: 0;
+    color: #2d2d2d;
+    font-size: 1.5rem;
+}
+
+.closeModal {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.closeModal:hover {
+    color: #2d2d2d;
+}
+
+.modalBody {
+    padding: 30px;
+}
+
+.authForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    text-align: left;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    text-align: left;
+}
+
+#authNameGroup,
+#authPhoneGroup,
+#confirmPasswordGroup {
+    width: 100%;
+}
+
+.formGroup label {
+    color: #2d2d2d;
+    font-weight: 500;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 4px;
+    order: -1;
+}
+
+.formGroup input {
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.formGroup input:focus {
+    outline: none;
+    border-color: #8a5a8a;
+    box-shadow: 0 0 5px rgba(138, 90, 138, 0.2);
+}
+
+.authActions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.authSubmitBtn, .toggleAuthBtn {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 14px;
+}
+
+.authSubmitBtn {
+    background: #8a5a8a;
+    color: white;
+}
+
+.authSubmitBtn:hover {
+    background: #6a3a6a;
+}
+
+.toggleAuthBtn {
+    background: transparent;
+    color: #8a5a8a;
+    border: 2px solid #8a5a8a;
+}
+
+.toggleAuthBtn:hover {
+    background: #8a5a8a;
+    color: white;
+}
+
+.userInfo {
+    background: #f8f4f8;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0d0e0;
+    text-align: left;
+}
+
+.userDetails p {
+    margin: 0 0 10px 0;
+    color: #2d2d2d;
+    font-size: 16px;
+    text-align: left;
+}
+
+.userDetails p:last-child {
+    margin-bottom: 0;
+}
+
+.accountActions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0d0e0;
+}
+
+.editAccountBtn, .signOutBtn {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 14px;
+}
+
+.editAccountBtn {
+    background: #8a5a8a;
+    color: white;
+}
+
+.editAccountBtn:hover {
+    background: #6a3a6a;
+}
+
+.signOutBtn {
+    background: transparent;
+    color: #8a5a8a;
+    border: 2px solid #8a5a8a;
+}
+
+.signOutBtn:hover {
+    background: #8a5a8a;
+    color: white;
+}

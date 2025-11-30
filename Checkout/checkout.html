@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Happie</title>
+    <link rel="icon" type="image/png" href="../Home/pageImages/imagelogo.png">
+    <link rel="stylesheet" href="checkout.css">
+    <script src="../auth.js" defer></script>
+    <script src="../History/history.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+    <script>
+        // Debug script to check if library loads
+        window.addEventListener('load', function() {
+            console.log('Page loaded, checking qrcode-generator library...');
+            if (typeof qrcode !== 'undefined') {
+                console.log('✅ qrcode-generator library loaded successfully');
+            } else {
+                console.error('❌ qrcode-generator library failed to load');
+                // Try alternative CDN
+                console.log('Trying alternative CDN...');
+                const script = document.createElement('script');
+                script.src = 'https://unpkg.com/qrcode-generator@1.4.4/qrcode.min.js';
+                script.onload = function() {
+                    console.log('✅ Alternative CDN loaded successfully');
+                };
+                script.onerror = function() {
+                    console.error('❌ Alternative CDN also failed');
+                };
+                document.head.appendChild(script);
+            }
+        });
+    </script>
+    <script src="checkout.js" defer></script>
+</head>
+<body>
+    <div class="topHeader">
+       <a href="../Home/home.html" class="logoLink">
+           <img src="pageImages/logoImage.png" alt="headerImage" class="headerImage">
+       </a>
+       
+       <!-- Secure Checkout Header and SSL Badge -->
+       <div class="secureCheckoutInfo">
+           <h1 class="secureCheckoutTitle">Secure Checkout</h1>
+           <div class="secureBadge">
+               <img src="../Checkout/pageImages/secure.png" alt="Secure Payment" class="secureIcon">
+               <span>SSL Secured Payment</span>
+           </div>
+       </div>
+        <div class="iconLinks">
+            <a href="#" class="iconLink">
+                <img src="pageImages/icons8myaccount.png" alt="Icon 1" class="linkIcon">
+                <span class="linkText">My Account</span>
+            </a>
+            <a href="../Cart/cart.html" class="iconLink">
+                <img src="pageImages/icons8cart..gif" alt="Icon 2" class="linkIcon">
+                <span class="linkText">Cart</span>
+                <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+            </a>
+        </div>
+    </div>
+
+    <div class="checkoutContainer">
+
+        <div class="checkoutContent">
+            <div class="checkoutLeft">
+
+
+                <div class="checkoutSection">
+                    <h2>Shipping Address</h2>
+                    <div class="addressHeader">
+                        <button type="button" id="autofillAddressBtn" class="autofillBtn">
+                            <img src="pageImages/icons8location.png" alt="Location" class="autofillIcon">
+                            <span>Auto-fill from Location</span>
+                        </button>
+                    </div>
+                    <form id="shippingForm" class="checkoutForm">
+                        <div class="formGroup">
+                            <label for="address">Home Address *</label>
+                            <input type="text" id="address" name="address" autocomplete="street-address" required>
+                        </div>
+                        <div class="formRow">
+                            <div class="formGroup">
+                                <label for="city">City *</label>
+                                <input type="text" id="city" name="city" autocomplete="address-level2" required>
+                            </div>
+                            <div class="formGroup">
+                                <label for="state">State *</label>
+                                <select id="state" name="state" autocomplete="address-level1" required>
+                                    <option value="">Select State</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="formRow">
+                            <div class="formGroup">
+                                <label for="zipCode">ZIP Code *</label>
+                                <input type="text" id="zipCode" name="zipCode" autocomplete="postal-code" required>
+                            </div>
+                            <div class="formGroup">
+                                <label for="country">Country *</label>
+                                <select id="country" name="country" autocomplete="country" required>
+                                    <option value="">Select Country</option>
+                                    <option value="Australia">Australia</option>
+                                    <option value="Brazil">Brazil</option>
+                                    <option value="Canada">Canada</option>
+                                    <option value="France">France</option>
+                                    <option value="Germany">Germany</option>
+                                    <option value="Ghana">Ghana</option>
+                                    <option value="India">India</option>
+                                    <option value="Kenya">Kenya</option>
+                                    <option value="Mexico">Mexico</option>
+                                    <option value="Morocco">Morocco</option>
+                                    <option value="Nigeria">Nigeria</option>
+                                    <option value="South Africa">South Africa</option>
+                                    <option value="United Kingdom">United Kingdom</option>
+                                    <option value="United States">United States</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="checkoutSection">
+                    <h2>Shipping Options</h2>
+                    <div class="shippingOptions">
+                        <div class="shippingOption">
+                            <input type="radio" id="standard" name="shipping" value="standard" checked>
+                            <label for="standard">
+                                <div class="shippingInfo">
+                                    <span class="shippingName">Standard Delivery</span>
+                                    <span class="shippingTime">3-5 business days</span>
+                                </div>
+                                <span class="shippingPrice">₦500</span>
+                            </label>
+                        </div>
+                        <div class="shippingOption">
+                            <input type="radio" id="express" name="shipping" value="express">
+                            <label for="express">
+                                <div class="shippingInfo">
+                                    <span class="shippingName">Express Delivery</span>
+                                    <span class="shippingTime">1-2 business days</span>
+                                </div>
+                                <span class="shippingPrice">₦1,200</span>
+                            </label>
+                        </div>
+                        <div class="shippingOption">
+                            <input type="radio" id="overnight" name="shipping" value="overnight">
+                            <label for="overnight">
+                                <div class="shippingInfo">
+                                    <span class="shippingName">Overnight Delivery</span>
+                                    <span class="shippingTime">Next business day</span>
+                                </div>
+                                <span class="shippingPrice">₦2,500</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="checkoutSection">
+                    <h2>Payment Method</h2>
+                    <div class="paymentOptions">
+                        <div class="paymentOption">
+                            <input type="radio" id="card" name="payment" value="card" checked>
+                            <label for="card">
+                                <img src="../Checkout/pageImages/creditcard.png" alt="Credit Card" class="paymentIcon">
+                                <span>Credit/Debit Card</span>
+                            </label>
+                        </div>
+                        <div class="paymentOption">
+                            <input type="radio" id="paypal" name="payment" value="paypal">
+                            <label for="paypal">
+                                <img src="../Checkout/pageImages/paypal.png" alt="PayPal" class="paymentIcon">
+                                <span>PayPal</span>
+                            </label>
+                        </div>
+                        <div class="paymentOption">
+                            <input type="radio" id="hapipay" name="payment" value="hapipay">
+                            <label for="hapipay">
+                                <img src="../Checkout/pageImages/logoImage.png" alt="HapiPay" class="paymentIcon">
+                                <span>HapiPay</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div id="cardForm" class="paymentForm" style="display: none;">
+                        <div class="formGroup">
+                            <label for="cardNumber">Card Number *</label>
+                            <input type="text" id="cardNumber" name="cardNumber" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="19">
+                        </div>
+                        <div class="formRow">
+                            <div class="formGroup">
+                                <label for="expiry">Expiry Date *</label>
+                                <input type="text" id="expiry" name="expiry" autocomplete="cc-exp" placeholder="MM/YY" maxlength="5">
+                            </div>
+                            <div class="formGroup">
+                                <label for="cvv">CVV *</label>
+                                <input type="text" id="cvv" name="cvv" autocomplete="cc-csc" placeholder="123" maxlength="4">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HapiPay QR Code Section -->
+                    <div id="hapipayQR" class="hapipayQR" style="display: none;">
+                        <div class="qrSection">
+                            <h4>Scan QR Code with HapiPay App</h4>
+                            <div class="qrWrapper">
+                                <canvas id="qrCanvas" width="200" height="200"></canvas>
+                                <div class="qrInfo">
+                                    <p><strong>Amount:</strong> <span id="qrAmount">₦0</span></p>
+                                    <button id="refreshQRBtn" class="refreshQRBtn">Refresh QR Code</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="formGroup" id="submitPaymentContainer">
+                        <button type="button" id="submitPaymentBtn" class="submitPaymentBtn">Submit Payment</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="checkoutRight">
+                <div class="orderSummary">
+                    <h2>Order Summary</h2>
+                    
+                    <div class="cartItems" id="cartItems">
+                        <p style="text-align: center; color: #666; padding: 20px;">No items selected</p>
+                    </div>
+
+                    <div class="orderTotals">
+                        <div class="totalRow">
+                            <span>Subtotal</span>
+                            <span id="subtotal">₦0</span>
+                        </div>
+                        <div class="totalRow">
+                            <span>Shipping</span>
+                            <span id="shippingCost">₦0</span>
+                        </div>
+                        <div class="totalRow total">
+                            <span>Total</span>
+                            <span id="totalCost">₦0</span>
+                        </div>
+                    </div>
+
+                    <div class="securityNotice">
+                        <img src="../Checkout/pageImages/secure.png" alt="Secure" class="lockIcon">
+                        <p>Your payment information is encrypted and secure</p>
+                    </div>
+
+                    <div class="authNotice" id="authNotice" style="display: none;">
+                        <img src="pageImages/icons8myaccount.png" alt="Sign In" style="width: 20px; height: 20px;">
+                        <p>Please sign in to complete your purchase</p>
+                    </div>
+
+                    <div class="checkoutActions">
+                        <button type="button" id="placeOrderBtn" class="placeOrderBtn">Place Order</button>
+                        <a href="../Cart/cart.html" class="continueShoppingBtn">Continue Shopping</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="orderModal" class="modal">
+        <div class="modalContent">
+            <div class="modalHeader">
+                <h2>Order Confirmation</h2>
+                <span class="closeModal">&times;</span>
+            </div>
+            <div class="modalBody">
+                <div class="successIcon">✓</div>
+                <h3>Thank you for your order!</h3>
+                <p>Your order has been successfully placed. You will receive a confirmation email shortly.</p>
+                <div class="orderDetails">
+                    <p><strong>Order Number:</strong> <span id="orderNumber">ORD-2024-001</span></p>
+                    <p><strong>Total Amount:</strong> <span id="orderTotal">₦0</span></p>
+                </div>
+            </div>
+            <div class="modalFooter">
+                <button id="viewOrdersBtn" class="viewOrdersBtn">View My Orders</button>
+                <a href="../Home/home.html" class="homeBtn">Back to Home</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="authModal" class="modal">
+        <div class="modalContent">
+            <div class="modalHeader">
+                <h2 id="authTitle">Sign In</h2>
+                <span class="closeModal">&times;</span>
+            </div>
+            <div class="modalBody">
+                <div id="authFormContainer">
+                    <form id="authForm" class="authForm">
+                         <div class="formGroup" id="authNameGroup" style="display: none;">
+                             <label for="authName">Full Name *</label>
+                             <input type="text" id="authName" name="name">
+                         </div>
+                         <div class="formGroup">
+                             <label for="authEmail">Email Address *</label>
+                             <input type="email" id="authEmail" name="email" required>
+                         </div>
+                         <div class="formGroup" id="authPhoneGroup" style="display: none;">
+                             <label for="authPhone">Phone Number *</label>
+                             <input type="tel" id="authPhone" name="phone">
+                         </div>
+                         <div class="formGroup">
+                             <label for="authPassword">Password *</label>
+                             <input type="password" id="authPassword" name="password" required>
+                         </div>
+                         <div class="formGroup" id="confirmPasswordGroup" style="display: none;">
+                             <label for="authConfirmPassword">Confirm Password *</label>
+                             <input type="password" id="authConfirmPassword" name="confirmPassword">
+                         </div>
+                        <div class="authActions">
+                            <button type="submit" id="authSubmitBtn" class="authSubmitBtn">Sign In</button>
+                            <button type="button" id="toggleAuthBtn" class="toggleAuthBtn">Create Account</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div id="userInfo" style="display: none;">
+                    <div class="userDetails">
+                        <p><strong>Name:</strong> <span id="userName">Not signed in</span></p>
+                        <p><strong>Email:</strong> <span id="userEmail">Not signed in</span></p>
+                        <p><strong>Phone:</strong> <span id="userPhone">Not signed in</span></p>
+                    </div>
+                    <div class="accountActions">
+                        <button id="editAccountBtn" class="editAccountBtn">Edit Account</button>
+                        <button id="signOutBtn" class="signOutBtn">Sign Out</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="qrCodeModal" class="modal">
+        <div class="modalContent">
+            <div class="modalHeader">
+                <h2>HapiPay QR Code</h2>
+                <span class="closeModal">&times;</span>
+            </div>
+            <div class="modalBody">
+                <div class="qrCodeContainer">
+                    <div class="qrCodeInfo">
+                        <h3>Scan QR Code with HapiPay App</h3>
+                        <p>Open your HapiPay app and scan this QR code to complete your payment</p>
+                        <div class="paymentDetails">
+                            <p><strong>Amount:</strong> <span id="qrAmount">₦0</span></p>
+                            <p><strong>Order ID:</strong> <span id="qrOrderId">ORD-000</span></p>
+                        </div>
+                    </div>
+                    <div class="qrCodeWrapper">
+                        <canvas id="qrCodeCanvas"></canvas>
+                    </div>
+                    <div class="qrCodeActions">
+                        <button id="refreshQRBtn" class="refreshQRBtn">Refresh QR Code</button>
+                        <button id="copyPaymentLinkBtn" class="copyPaymentLinkBtn">Copy Payment Link</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

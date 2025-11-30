@@ -1,0 +1,1179 @@
+
+*{box-sizing: border-box;}
+
+::selection {
+    background-color: #8a5a8a !important;
+    color: white !important;
+}
+
+::-moz-selection {
+    background-color: #8a5a8a !important;
+    color: white !important;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.topHeader {
+    background-color: #aa79aa;
+    padding: 3px 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.logoLink {
+    position: relative;
+    z-index: 100;
+    display: block;
+    text-decoration: none;
+    flex-shrink: 0;
+    left: 245px;
+}
+
+.headerImage {
+    display: block;
+    object-fit: contain;
+}
+
+.secureCheckoutInfo {
+    position: absolute;
+    left: 500px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.secureCheckoutTitle {
+    color: #2d2d2d;
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 600;
+    text-align: center;
+}
+
+.secureBadge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f8f4f8;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid #8a5a8a;
+}
+
+.secureIcon {
+    width: 20px;
+    height: 20px;
+}
+
+.secureBadge span {
+    color: #2d2d2d;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.iconLinks {
+    display: flex;
+    gap: 15px;
+    z-index: 100;
+    flex-shrink: 0;
+    position: absolute;
+    right:280px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.cart-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: #8a5a8a;
+    color: white;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    min-width: 20px;
+}
+
+
+
+
+
+.iconLink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: flex-end;
+    text-decoration: none;
+    color: #1a1a1a;
+    padding: 8px 12px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+    position: relative;
+}
+
+.iconLink:hover {
+    background-color: #8a5a8a;
+}
+
+
+
+.linkIcon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+
+.linkText {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1a1a1a;
+    transition: color 0.3s ease;
+}
+
+.checkoutContainer {
+    max-width: 1400px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Responsive design for topbar */
+@media (max-width: 768px) {
+    .topHeader {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    
+    .secureCheckoutInfo {
+        order: 2;
+        margin: 10px 0;
+    }
+    
+    .secureCheckoutTitle {
+        font-size: 1.2rem;
+    }
+    
+    .iconLinks {
+        order: 3;
+    }
+}
+
+@media (max-width: 480px) {
+    .secureCheckoutTitle {
+        font-size: 1rem;
+    }
+    
+    .secureBadge {
+        padding: 6px 12px;
+    }
+    
+    .secureBadge span {
+        font-size: 12px;
+    }
+}
+
+
+
+.secureBadge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #f8f4f8;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid #8a5a8a;
+}
+
+.secureIcon {
+    width: 20px;
+    height: 20px;
+}
+
+.secureBadge span {
+    color: #2d2d2d;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.checkoutContent {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: start;
+    margin-top: 20px;
+}
+
+.checkoutLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.checkoutSection {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.checkoutSection h2 {
+    color: #2d2d2d;
+    font-size: 1.5rem;
+    margin: 0 0 15px 0;
+    font-weight: 600;
+    border-bottom: 2px solid #8a5a8a;
+    padding-bottom: 10px;
+}
+
+.addressHeader {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+}
+
+.autofillBtn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #8a5a8a;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.autofillBtn:hover {
+    background: #6a3a6a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(138, 90, 138, 0.3);
+}
+
+.autofillBtn:active {
+    transform: translateY(0);
+}
+
+.autofillIcon {
+    width: 16px;
+    height: 16px;
+    object-fit: contain;
+}
+
+.checkoutForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formRow {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+.formGroup label {
+    color: #2d2d2d;
+    font-weight: 500;
+    font-size: 14px;
+    display: block;
+    margin-bottom: 4px;
+    order: -1;
+    position: relative;
+    top: 8px;
+    z-index: 1;
+}
+
+.formGroup input,
+.formGroup select {
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.formGroup input:focus,
+.formGroup select:focus {
+    outline: none;
+    border-color: #8a5a8a;
+    box-shadow: 0 0 5px rgba(138, 90, 138, 0.2);
+}
+
+.formGroup select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%238a5a8a' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 40px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.formGroup select:hover {
+    border-color: #8a5a8a;
+    background-color: #f8f4f8;
+}
+
+.formGroup select:focus {
+    outline: none;
+    border-color: #8a5a8a;
+    box-shadow: 0 0 5px rgba(138, 90, 138, 0.2);
+}
+
+.formGroup select option {
+    background-color: white;
+    color: #2d2d2d;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+/* Note: Browser dropdown option colors are limited by browser/OS defaults */
+/* The blue selection color is a system-level styling that cannot be fully overridden */
+/* This is a common limitation across all browsers and operating systems */
+
+.formGroup select option:hover {
+    background-color: #8a5a8a !important;
+    color: white !important;
+}
+
+.formGroup select option:checked {
+    background-color: #8a5a8a !important;
+    color: white !important;
+}
+
+.formGroup select option:focus {
+    background-color: #8a5a8a !important;
+    color: white !important;
+}
+
+.formGroup select option:active {
+    background-color: #8a5a8a !important;
+    color: white !important;
+}
+
+.formGroup select:disabled {
+    background-color: #f5f5f5;
+    color: #999;
+    cursor: not-allowed;
+    border-color: #ddd;
+}
+
+.formGroup select option:hover {
+    background-color: #f8f4f8;
+}
+
+.formGroup input.error {
+    border-color: #8a5a8a;
+}
+
+.shippingOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.shippingOption {
+    position: relative;
+}
+
+.shippingOption input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.shippingOption label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.shippingOption input[type="radio"]:checked + label {
+    border-color: #8a5a8a;
+    background: #f8f4f8;
+    box-shadow: 0 2px 8px rgba(138, 90, 138, 0.1);
+}
+
+.shippingInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.shippingName {
+    font-weight: 600;
+    color: #2d2d2d;
+    font-size: 16px;
+}
+
+.shippingTime {
+    color: #666;
+    font-size: 14px;
+}
+
+.shippingPrice {
+    font-weight: 600;
+    color: #8a5a8a;
+    font-size: 18px;
+}
+
+.paymentOptions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.paymentOption {
+    position: relative;
+}
+
+.paymentOption input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.paymentOption label {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.paymentOption input[type="radio"]:checked + label {
+    border-color: #8a5a8a;
+    background: #f8f4f8;
+    box-shadow: 0 2px 8px rgba(138, 90, 138, 0.1);
+}
+
+.paymentIcon {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.paymentOption span {
+    font-weight: 500;
+    color: #2d2d2d;
+    font-size: 16px;
+}
+
+.paymentForm {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 25px;
+    margin-top: 20px;
+}
+
+.checkoutRight {
+    position: sticky;
+    top: 20px;
+}
+
+.orderSummary {
+    background: white;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.orderSummary h2 {
+    color: #2d2d2d;
+    font-size: 1.5rem;
+    margin: 0 0 25px 0;
+    font-weight: 600;
+    border-bottom: 2px solid #8a5a8a;
+    padding-bottom: 10px;
+}
+
+.cartItems {
+    margin-bottom: 25px;
+}
+
+.cartItem {
+    display: flex;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.cartItem:last-child {
+    border-bottom: none;
+}
+
+.itemImage {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.itemDetails h4 {
+    margin: 0 0 5px 0;
+    color: #2d2d2d;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.itemQuantity {
+    margin: 0 0 5px 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.itemPrice {
+    margin: 0;
+    color: #8a5a8a;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.orderTotals {
+    border-top: 2px solid #f0f0f0;
+    padding-top: 20px;
+    margin-bottom: 25px;
+}
+
+.totalRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    font-size: 16px;
+}
+
+.totalRow.total {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 15px;
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #2d2d2d;
+}
+
+.totalRow.total span:last-child {
+    color: #8a5a8a;
+    font-size: 20px;
+}
+
+.securityNotice {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f8f4f8;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #e0d0e0;
+}
+
+.lockIcon {
+    width: 20px;
+    height: 20px;
+}
+
+.securityNotice p {
+    margin: 0;
+    color: #666;
+    font-size: 14px;
+}
+
+.authNotice {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f8f4f8;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    border: 1px solid #8a5a8a;
+}
+
+.authNotice p {
+    margin: 0;
+    color: #2d2d2d;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.checkoutActions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.placeOrderBtn {
+    background: #8a5a8a;
+    color: white;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.placeOrderBtn:hover {
+    background: #6a3a6a;
+}
+
+.placeOrderBtn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+
+.continueShoppingBtn {
+    background: transparent;
+    color: #8a5a8a;
+    border: 2px solid #8a5a8a;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.continueShoppingBtn:hover {
+    background: #8a5a8a;
+    color: white;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modalContent {
+    background-color: white;
+    margin: 5% auto;
+    padding: 0;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modalHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 30px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.modalHeader h2 {
+    margin: 0;
+    color: #2d2d2d;
+    font-size: 1.5rem;
+}
+
+.closeModal {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.closeModal:hover {
+    color: #2d2d2d;
+}
+
+.modalBody {
+    padding: 30px;
+    text-align: center;
+}
+
+.successIcon {
+    width: 80px;
+    height: 80px;
+    background: #8a5a8a;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    margin: 0 auto 20px;
+}
+
+.modalBody h3 {
+    color: #2d2d2d;
+    margin: 0 0 15px 0;
+    font-size: 1.5rem;
+}
+
+.modalBody p {
+    color: #666;
+    margin: 0 0 25px 0;
+    line-height: 1.6;
+}
+
+.orderDetails {
+    background: #f8f4f8;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: left;
+}
+
+.orderDetails p {
+    margin: 0 0 10px 0;
+    color: #2d2d2d;
+}
+
+.orderDetails p:last-child {
+    margin-bottom: 0;
+}
+
+.modalFooter {
+    display: flex;
+    gap: 15px;
+    padding: 25px 30px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.viewOrdersBtn {
+    flex: 1;
+    background: #8a5a8a;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.viewOrdersBtn:hover {
+    background: #6a3a6a;
+}
+
+.homeBtn {
+    flex: 1;
+    background: transparent;
+    color: #8a5a8a;
+    border: 2px solid #8a5a8a;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.homeBtn:hover {
+    background: #8a5a8a;
+    color: white;
+}
+
+
+
+@media (max-width: 1024px) {
+    .checkoutContent {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .checkoutRight {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .checkoutContainer {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+    
+    .checkoutHeader {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+    
+    .checkoutHeader h1 {
+        font-size: 1.5rem;
+    }
+    
+    .formRow {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .checkoutSection {
+        padding: 20px;
+    }
+    
+    .orderSummary {
+        padding: 20px;
+    }
+    
+    .modalContent {
+        width: 95%;
+        margin: 10% auto;
+    }
+    
+    .modalFooter {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    .checkoutContainer {
+        padding: 0 10px;
+    }
+    
+    .checkoutSection {
+        padding: 15px;
+    }
+    
+    .orderSummary {
+        padding: 15px;
+    }
+    
+    .shippingOption label,
+    .paymentOption label {
+        padding: 15px;
+    }
+    
+    .placeOrderBtn,
+    .continueShoppingBtn {
+        padding: 14px 20px;
+        font-size: 16px;
+    }
+}
+
+#authModal .modalBody {
+    text-align: left;
+}
+
+.userInfo {
+    background: #f8f4f8;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #e0d0e0;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.userDetails p {
+    margin: 0 0 10px 0;
+    color: #2d2d2d;
+    font-size: 16px;
+    text-align: left;
+    width: 100%;
+}
+
+.userDetails p:last-child {
+    margin-bottom: 0;
+}
+
+.accountActions {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0d0e0;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.editAccountBtn, .signOutBtn {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 14px;
+}
+
+.editAccountBtn {
+    background: #8a5a8a;
+    color: white;
+}
+
+.editAccountBtn:hover {
+    background: #6a3a6a;
+}
+
+.signOutBtn {
+    background: transparent;
+    color: #8a5a8a;
+    border: 2px solid #8a5a8a;
+}
+
+.signOutBtn:hover {
+    background: #8a5a8a;
+    color: white;
+}
+
+.authForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+}
+
+#authNameGroup,
+#authPhoneGroup,
+#confirmPasswordGroup {
+    width: 100%;
+}
+
+.authForm .formGroup input {
+    padding: 12px 16px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background: white;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.authForm .formGroup input:focus {
+    outline: none;
+    border-color: #8a5a8a;
+    box-shadow: 0 0 5px rgba(138, 90, 138, 0.2);
+}
+
+.authActions {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.authSubmitBtn, .toggleAuthBtn {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    font-size: 14px;
+}
+
+.authSubmitBtn {
+    background: #8a5a8a;
+    color: white;
+}
+
+.authSubmitBtn:hover {
+    background: #6a3a6a;
+}
+
+.toggleAuthBtn {
+    background: transparent;
+    color: #8a5a8a;
+    border: 2px solid #8a5a8a;
+}
+
+.toggleAuthBtn:hover {
+    background: #8a5a8a;
+    color: white;
+}
+
+/* HapiPay QR Code Styles */
+.hapipayQR {
+    margin-top: 20px;
+    padding: 20px;
+    background: #f8f4f8;
+    border-radius: 8px;
+    border: 1px solid #e0d0e0;
+}
+
+.qrSection {
+    text-align: center;
+}
+
+.qrSection h4 {
+    color: #2d2d2d;
+    margin: 0 0 15px 0;
+    font-size: 16px;
+}
+
+.qrWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 15px 0;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #e0e0e0;
+    gap: 15px;
+}
+
+#qrCanvas {
+    max-width: 200px;
+    max-height: 200px;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.qrInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 200px;
+    padding: 12px 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+    margin-top: 10px;
+    gap: 20px;
+}
+
+.qrInfo p {
+    margin: 0;
+    font-size: 14px;
+    color: #495057;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.qrInfo strong {
+    color: #212529;
+    font-weight: 600;
+}
+
+.refreshQRBtn {
+    padding: 6px 12px;
+    background: #8a5a8a;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.refreshQRBtn:hover {
+    background: #6a3a6a;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(138, 90, 138, 0.3);
+}
+
+
+
+.submitPaymentBtn {
+    background: #8a5a8a;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.submitPaymentBtn:hover {
+    background: #6a3a6a;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(138, 90, 138, 0.3);
+}
+
+.submitPaymentBtn:active {
+    transform: translateY(0);
+}
+
+.submitPaymentBtn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}

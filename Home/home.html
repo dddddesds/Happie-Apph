@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happie</title>
+    <link rel="icon" type="image/png" href="pageImages/imagelogo.png">
+    <link rel="stylesheet" href="home.css?v=3">
+    <script src="../auth.js" defer></script>
+    <script src="home.js" defer></script>
+    <link rel="preload" as="image" href="pageImages/rice.jpg">
+    <link rel="preload" as="image" href="pageImages/maize.jpg">
+    <link rel="preload" as="image" href="pageImages/milk.webp">
+    <link rel="preload" as="image" href="pageImages/goatmeat.jpg">
+    <link rel="preload" as="image" href="pageImages/eggs.jpg">
+</head>
+<body>
+    <div class="topHeader">
+       <a href="home.html" class="logoLink">
+           <img src="pageImages/logoImage.png" alt="headerImage" class="headerImage">
+       </a>
+       <a href="#" class="locationLink">
+           <span class="locationIconWrap">
+               <img src="pageImages/icons8location.png?v=3" alt="Location Icon" class="locationIcon" width="32" height="32">
+           </span>
+                           <span id="userLocation" class="locationText">...</span>
+       </a>
+        <div class="searchContainer">
+            <input type="text" class="searchBar" placeholder="Search for products, stores, or services..." aria-label="Search products">
+            <button class="searchButton" aria-label="Search"> <img src="pageImages/icon8Searchs.png" alt="Search icon"> </button>
+        </div>
+        <div class="iconLinks">
+            <a href="#" class="iconLink">
+                <img src="pageImages/icons8myaccount.png" alt="Icon 1" class="linkIcon">
+                <span class="linkText">My Account</span>
+            </a>
+            <a href="../Cart/cart.html" class="iconLink">
+                <img src="pageImages/icons8cart..gif" alt="Icon 2" class="linkIcon">
+                <span class="linkText">Cart</span>
+                <span class="cart-badge" id="cartBadge" style="display: none;">0</span>
+            </a>
+            <a href="../History/history.html" class="iconLink">
+                <img src="pageImages/icons8order.png" alt="Icon 3" class="linkIcon">
+                <span class="linkText">History</span>
+            </a>
+        </div>
+    </div>
+    <div class="container">
+        <div class="iconGrid">
+            <a href="#" class="gridItem">
+                <img src="pageImages/panda.png" alt="e-commerce" class="gridIcon">
+                <span class="gridText">Happie E-commerce</span>
+            </a>
+            <a href="#" class="gridItem active">
+                <img src="pageImages/fresh.png" alt="fresh" class="gridIcon">
+                <span class="gridText">From Farm To Me</span>
+            </a>
+            <a href="#" class="gridItem">
+                <img src="pageImages/flashsales.png" alt="flash sales" class="gridIcon">
+                <span class="gridText">Flash Sales</span>
+            </a>
+            <a href="#" class="gridItem">
+                <img src="pageImages/delivery1.png" alt="tomorrow" class="gridIcon">
+                <span class="gridText">24hrs Delivery</span>
+            </a>
+            <a href="#" class="gridItem">
+                <img src="pageImages/restaurant.png" alt="restaurant" class="gridIcon">
+                <span class="gridText">Restaurants Near Me</span>
+            </a>
+            <a href="#" class="gridItem">
+                <img src="pageImages/delivery.png" alt="delivery" class="gridIcon">
+                <span class="gridText">Errands</span>
+            </a>
+            <a href="#" class="gridItem">
+                <img src="pageImages/pharmacy1.png" alt="pharmacy1" class="gridIcon">
+                <span class="gridText">Healthcare & Pharmacy</span>
+            </a>
+            <a href="#" class="gridItem">
+                <img src="pageImages/gadgets.png" alt="gadgets" class="gridIcon">
+                <span class="gridText">Phones & Gadgets</span>
+            </a>
+            <a href="#" class="gridItem">
+                <img src="pageImages/leisure.png" alt="leisure" class="gridIcon">
+                <span class="gridText">Leisure & Fun</span>
+            </a>
+            <a href="#" class="gridItem">
+                <img src="pageImages/manicure.png" alt="manicure" class="gridIcon">
+                <span class="gridText">Beauty & Personal Care</span>
+            </a>
+            <a href="#" class="gridItem">
+                <img src="pageImages/movies.png" alt="movies" class="gridIcon">
+                <span class="gridText">Movies & Cinemas</span>
+            </a>
+            <a href="#" class="gridItem">
+                <img src="pageImages/travel.png" alt="travel" class="gridIcon">
+                <span class="gridText">Plane & Bus Tickets</span>
+            </a>
+            <a href="#" class="gridItem">
+                <img src="pageImages/hotel.png" alt="hotel" class="gridIcon">
+                <span class="gridText">Hotel Bookings</span>
+            </a>
+            <a href="#" class="gridItem">
+                <img src="pageImages/apartments.png" alt="apartment" class="gridIcon">
+                <span class="gridText">Apartments For Rent</span>
+            </a>
+            <a href="#" class="gridItem">
+                <img src="pageImages/artisans.png" alt="artisans" class="gridIcon">
+                <span class="gridText">Artisans</span>
+            </a>
+            <a href="#" class="gridItem">
+                <img src="pageImages/car.png" alt="car maintenance" class="gridIcon">
+                <span class="gridText">Car Maintenance</span>
+            </a>
+            <a href="#" class="gridItem">
+                <img src="pageImages/learning.png" alt="learning" class="gridIcon">
+                <span class="gridText">Learning</span>
+            </a>
+            <a href="#" class="gridItem">
+                <img src="pageImages/store.png" alt="stores" class="gridIcon">
+                <span class="gridText">Stores near me</span>
+            </a>
+            <a href="#" class="gridItem">
+                <img src="pageImages/mobilerecharge.png" alt="mobile recharge" class="gridIcon">
+                <span class="gridText">Mobile Recharge</span>
+            </a>
+            <a href="#" class="gridItem">
+                <img src="pageImages/others.png" alt="others" class="gridIcon">
+                <span class="gridText">Others</span>
+            </a>
+        </div>
+    </div>
+    
+    <div class="foodSection">
+        <div class="foodGrid">
+            <a href="../Farm and Product selected details/product.html" class="foodItem">
+                <img src="pageImages/rice.jpg" alt="Rice" class="foodImage" width="300" height="180" decoding="async" fetchpriority="high">
+                <h3 class="foodName">Fresh Well processed Local Rice</h3>
+                <div class="foodRating">
+                    <span class="recommendCount">128 people recommend this</span>
+                    <span class="reviewCount">90% of people like this</span>
+                </div>
+                <div class="priceContainer">
+                    <span class="foodPrice">₦1200</span>
+                    <span class="foodAmount">1 kg</span>
+                </div>
+                <p class="storeName">DeyPlay Rice Farm</p>
+            </a>
+            <a href="u" class="foodItem">
+                <img src="pageImages/maize.jpg" alt="Maize" class="foodImage" width="300" height="180" decoding="async" fetchpriority="high">
+                <h3 class="foodName">Freshly Harvested Corn</h3>
+                <div class="foodRating">
+                    <span class="recommendCount">85 people recommend this</span>
+                    <span class="reviewCount">96% of people like this</span>
+                </div>
+                <div class="priceContainer">
+                    <span class="foodPrice">₦1500</span>
+                    <span class="foodAmount">500g</span>
+                </div>
+                <p class="storeName">God Is Able Farm</p>
+            </a>
+            <a href="#" class="foodItem">
+                <img src="pageImages/milk.webp" alt="Milk" class="foodImage" width="300" height="180" decoding="async" fetchpriority="high">
+                <h3 class="foodName">Fresh Milk</h3>
+                <div class="foodRating">
+                    <span class="recommendCount">59 people recommend this</span>
+                    <span class="reviewCount">88% of people like this</span>
+                </div>
+                <div class="priceContainer">
+                    <span class="foodPrice">₦1200</span>
+                    <span class="foodAmount">1 liter</span>
+                </div>
+                <p class="storeName">Allah Akbar Dairy Farm</p>
+            </a>
+            <a href="#" class="foodItem">
+                <img src="pageImages/goatmeat.jpg" alt="Goat Meat" class="foodImage" width="300" height="180" decoding="async" fetchpriority="high">
+                <h3 class="foodName">Tasty Goat Meat</h3>
+                <div class="foodRating">
+                    <span class="recommendCount">149 people recommend this</span>
+                    <span class="reviewCount">95% of people like this</span>
+                </div>
+                <div class="priceContainer">
+                    <span class="foodPrice">₦800</span>
+                    <span class="foodAmount">500g</span>
+                </div>
+                <p class="storeName">Dan BoroBa farms</p>
+            </a>
+            <a href="#" class="foodItem">
+                <img src="pageImages/eggs.jpg" alt="Eggs" class="foodImage" width="300" height="180" decoding="async" fetchpriority="high">
+                <h3 class="foodName">Fresh Big Eggs</h3>
+                <div class="foodRating">
+                    <span class="recommendCount">81 people recommend this</span>
+                    <span class="reviewCount">87% of people like this</span>
+                </div>
+                <div class="priceContainer">
+                    <span class="foodPrice">₦1000</span>
+                    <span class="foodAmount">12 pieces</span>
+                </div>
+                <p class="storeName">Shege Poutries</p>
+            </a>
+            <a href="u" class="foodItem">
+                <img src="pageImages/efoleaves.jpg" alt="Efo Leaves" class="foodImage" width="300" height="180" loading="lazy" decoding="async">
+                <h3 class="foodName">Fresh Efo Leaves </h3>
+                <div class="foodRating">
+                    <span class="recommendCount">74 people recommend this</span>
+                    <span class="reviewCount">95% of people like this</span>
+                </div>
+                <div class="priceContainer">
+                    <span class="foodPrice">₦800</span>
+                    <span class="foodAmount">1 kg</span>
+                </div>
+                <p class="storeName">Ewe Garden Farm</p>
+            </a>
+            <a href="#" class="foodItem">
+                <img src="pageImages/sheepmeat.jpg" alt="mutton" class="foodImage" width="300" height="180" loading="lazy" decoding="async">
+                <h3 class="foodName">Freshly slaughtered Sheep</h3>
+                <div class="foodRating">
+                    <span class="recommendCount">121 people recommend this</span>
+                    <span class="reviewCount">90% of people like this</span>
+                </div>
+                <div class="priceContainer">
+                    <span class="foodPrice">₦1500</span>
+                    <span class="foodAmount">1 kg</span>
+                </div>
+                <p class="storeName">Omo Livestocks and Farms</p>
+            </a>
+            <a href="#" class="foodItem">
+                <img src="pageImages/catfish.png" alt="Fish" class="foodImage" width="300" height="180" loading="lazy" decoding="async">
+                <h3 class="foodName">Tasty Catfish</h3>
+                <div class="foodRating">
+                    <span class="recommendCount">86 people recommend this</span>
+                    <span class="reviewCount">88% of people like this</span>
+                </div>
+                <div class="priceContainer">
+                    <span class="foodPrice">₦2000</span>
+                    <span class="foodAmount">1 kg</span>
+                </div>
+                <p class="storeName">Igbo Kwenu Catfish Farm</p>
+            </a>
+            <a href="#" class="foodItem">
+                <img src="pageImages/chicken.jpg" alt="Chicken" class="foodImage" width="300" height="180" loading="lazy" decoding="async">
+                <h3 class="foodName">Chicken</h3>
+                <div class="foodRating">
+                    <span class="recommendCount">179 people recommend this</span>
+                    <span class="reviewCount">96% of people like this</span>
+                </div>
+                <div class="priceContainer">
+                    <span class="foodPrice">₦3500</span>
+                    <span class="foodAmount">1 whole</span>
+                </div>
+                <p class="storeName">Inshallah Poultry Farms</p>
+            </a>
+            <a href="#" class="foodItem">
+                <img src="pageImages/honey.jpg" alt="Honey" class="foodImage" width="300" height="180" loading="lazy" decoding="async">
+                <h3 class="foodName">Pure Natural Honey</h3>
+                <div class="foodRating">
+                    <span class="recommendCount">148 people recommend this</span>
+                    <span class="reviewCount">95% of people like this</span>
+                </div>
+                <div class="priceContainer">
+                    <span class="foodPrice">₦2500</span>
+                    <span class="foodAmount">500ml</span>
+                </div>
+                <p class="storeName">Walahi Bee Farms</p>
+            </a>
+            <a href="#" class="foodItem">
+                <img src="pageImages/tomato.webp" alt="Tomatoes" class="foodImage" width="300" height="180" loading="lazy" decoding="async">
+                <h3 class="foodName">Fresh Tomatoes</h3>
+                <div class="foodRating">
+                    <span class="recommendCount">54 people recommend this</span>
+                    <span class="reviewCount">81% of people like this</span>
+                </div>
+                <div class="priceContainer">
+                    <span class="foodPrice">₦600</span>
+                    <span class="foodAmount">1 kg</span>
+                </div>
+                <p class="storeName">Omo Farms</p>
+            </a>
+            <a href="#" class="foodItem">
+                <img src="pageImages/palmoil.webp" alt="Palm Oil" class="foodImage" width="300" height="180" loading="lazy" decoding="async">
+                <h3 class="foodName">Palm Oil</h3>
+                <div class="foodRating">
+                    <span class="recommendCount">78 people recommend this</span>
+                    <span class="reviewCount">88% of people like this</span>
+                </div>
+                <div class="priceContainer">
+                    <span class="foodPrice">₦400</span>
+                    <span class="foodAmount">25 liters</span>
+                </div>
+                <p class="storeName">Igbo Palm Oil Industries</p>
+            </a>
+            <a href="#" class="foodItem">
+                <img src="pageImages/yam.jpg" alt="Yam" class="foodImage" width="300" height="180" loading="lazy" decoding="async">
+                <h3 class="foodName">Fresh Yam Tubers</h3>
+                <div class="foodRating">
+                    <span class="recommendCount">107 people recommend this</span>
+                    <span class="reviewCount">87% of people like this</span>
+                </div>
+                <div class="priceContainer">
+                    <span class="foodPrice">₦1000</span>
+                    <span class="foodAmount">1 tuber</span>
+                </div>
+                <p class="storeName">Hausa farms</p>
+            </a>
+            <a href="#" class="foodItem">
+                <img src="pageImages/beef.jpg" alt="Beef" class="foodImage" width="300" height="180" loading="lazy" decoding="async">
+                <h3 class="foodName">Beef</h3>
+                <div class="foodRating">
+                    <span class="recommendCount">138 people recommend this</span>
+                    <span class="reviewCount">95% of people like this</span>
+                </div>
+                <div class="priceContainer">
+                    <span class="foodPrice">₦900</span>
+                    <span class="foodAmount">1 kg</span>
+                </div>
+                <p class="storeName">Cow Farms</p>
+            </a>
+            <a href="#" class="foodItem">
+                <img src="pageImages/seafood.jpg" alt="Seafood" class="foodImage" width="300" height="180" loading="lazy" decoding="async">
+                <h3 class="foodName">Seafood</h3>
+                <div class="foodRating">
+                    <span class="recommendCount">61 people recommend this</span>
+                    <span class="reviewCount">80% of people like this</span>
+                </div>
+                <div class="priceContainer">
+                    <span class="foodPrice">₦3000</span>
+                    <span class="foodAmount">250g</span>
+                </div>
+                <p class="storeName">Seafood Market</p>
+            </a>
+        </div>
+    </div>
+
+    <footer class="footerSection">
+        <div class="footerContent">
+            <div class="footerLogo">
+                <img src="pageImages/logoImage.png" alt="Happie Logo" class="footerLogoImage">
+                <h2> </h2>
+                <p> </p>
+            </div>
+            <div class="footerLinks">
+                <div class="linkColumn">
+                    <h4>Make Money With Us</h4>
+                    <a href="#">Sell on Happie</a>
+                    <a href="#">Partner with Us</a>
+                    <a href="#">Join Happie Team</a>
+                </div>
+                <div class="linkColumn">
+                    <h4>Services</h4>
+                    <a href="#">Happie E-commerce</a>
+                    <a href="#">From Farm To Me</a>
+                    <a href="#">Flash Sales</a>
+                    <a href="#">24hrs Delivery</a>
+                    <a href="#">Restaurants Near Me</a>
+                    <a href="#">Errands</a>
+                    <a href="#">Healthcare & Pharmacy</a>
+                    <a href="#">Phones & Gadgets</a>
+                    <a href="#">Leisure & Fun</a>
+                    <a href="#">Beauty & Personal Care</a>
+                    <a href="#">Movies & Cinemas</a>
+                    <a href="#">Plane & Bus Tickets</a>
+                    <a href="#">Hotel Bookings</a>
+                    <a href="#">Apartments For Rent</a>
+                    <a href="#">Artisans</a>
+                    <a href="#">Car Maintenance</a>
+                    <a href="#">Learning</a>
+                    <a href="#">Stores near me</a>
+                    <a href="#">Mobile Recharge</a>
+                    <a href="#">Others</a>
+                </div>
+                <div class="linkColumn">
+                    <h4>Support</h4>
+                    <a href="#">Help Center</a>
+                    <a href="#">Contact Us</a>
+                    <a href="#">Track Order</a>
+                </div>
+            </div>
+        </div>
+        <div class="footerBottom">
+            <p>&copy; 2025 Happie. All rights reserved. | A platform for all your needs.</p>
+        </div>
+    </footer>
+
+    <div id="authModal" class="modal">
+        <div class="modalContent">
+            <div class="modalHeader">
+                <h2 id="authTitle">Sign In</h2>
+                <span class="closeModal">&times;</span>
+            </div>
+            <div class="modalBody">
+                <div id="authFormContainer">
+                    <form id="authForm" class="authForm">
+                         <div class="formGroup" id="authNameGroup" style="display: none;">
+                             <label for="authName">Full Name *</label>
+                             <input type="text" id="authName" name="name">
+                         </div>
+                         <div class="formGroup">
+                             <label for="authEmail">Email Address *</label>
+                             <input type="email" id="authEmail" name="email" required>
+                         </div>
+                         <div class="formGroup" id="authPhoneGroup" style="display: none;">
+                             <label for="authPhone">Phone Number *</label>
+                             <input type="tel" id="authPhone" name="phone">
+                         </div>
+                         <div class="formGroup">
+                             <label for="authPassword">Password *</label>
+                             <input type="password" id="authPassword" name="password" required>
+                         </div>
+                         <div class="formGroup" id="confirmPasswordGroup" style="display: none;">
+                             <label for="authConfirmPassword">Confirm Password *</label>
+                             <input type="password" id="authConfirmPassword" name="confirmPassword">
+                         </div>
+                        <div class="authActions">
+                            <button type="submit" id="authSubmitBtn" class="authSubmitBtn">Sign In</button>
+                            <button type="button" id="toggleAuthBtn" class="toggleAuthBtn">Create Account</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <div id="userInfo" style="display: none;">
+                    <div class="userDetails">
+                        <p><strong>Name:</strong> <span id="userName">Not signed in</span></p>
+                        <p><strong>Email:</strong> <span id="userEmail">Not signed in</span></p>
+                        <p><strong>Phone:</strong> <span id="userPhone">Not signed in</span></p>
+                    </div>
+                    <div class="accountActions">
+                        <button id="editAccountBtn" class="editAccountBtn">Edit Account</button>
+                        <button id="signOutBtn" class="signOutBtn">Sign Out</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
